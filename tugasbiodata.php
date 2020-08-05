@@ -4,7 +4,7 @@
     </head>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 <body>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <label for="" class="font-weight-bold" > Nama Lengkap :</label>
         <input class="shadow p-3 mb-5 bg-white rounded" type="text" name="nama_lengkap">
         <br>
@@ -19,11 +19,11 @@
 		<input type="radio" name="jk"> Perempuan
         <br>
         <label for="" class="font-weight-bold"> Hobby :</label>
-        <input type="checkbox" name="hobby" value="hobby">Membaca
-		<input type="checkbox" name="hobby" value="hobby">Travelling
-		<input type="checkbox" name="hobby" value="hobby">Jogging
-		<input type="checkbox" name="hobby" value="hobby">Main Game
-		<input type="checkbox" name="hobby" value="hobby">Ngoding
+        <input type="checkbox" name="membaca" value="membaca">Membaca
+		<input type="checkbox" name="traveling" value="traveling">Travelling
+		<input type="checkbox" name="jogging" value="jogging">Jogging
+		<input type="checkbox" name="maingame" value="maingame">Main Game
+		<input type="checkbox" name="ngoding" value="ngoding">Ngoding
         <br>
         <label for="" class="font-weight-bold"> Alamat :</label>
         <textarea name="" placeholder="masukkan_alamat"></textarea>
@@ -84,17 +84,28 @@
             $nama =$_POST["nama_lengkap"];
             $tanggal =$_POST["tgl"];
             $tptLahir =$_POST["tempat_lahir"];
-            $jnsKelamin =$_POST["jk"];
-            $hobby =$_POST["hobby"];
+            $jnsKelamin =!empty($_POST["jk"])?$_POST["jk"]:'anda belum memilih jenis kelamin';
+            $hobby =!empty($_POST["membaca"])?$_POST["membaca"]:'';
+            $hobby2 =!empty($_POST["traveling"])?$_POST["traveling"]:'';
+            $hobby3 =!empty($_POST["jogging"])?$_POST["jogging"]:'';
+            $hobby4 =!empty($_POST["maingame"])?$_POST["maingame"]:'';
+            $hobby5 =!empty($_POST["ngoding"])?$_POST["ngoding"]:'';
             $alamat =$_POST["masukkan_alamat"];
             $kota =$_POST["kota"];
             $pendidikan =$_POST["pendidikan"];
             $kerja =$_POST["pekerjaan"];
             $agama =$_POST["agama"];
-            $foto =$_POST["foto"];
             $kode =$_POST["kode"];
             $user =$_POST["user"];
 
+            $foto =$_FILES["foto"]["name"];
+            if(move_uploaded_file($_FILES['foto']['tmp_name'],"img/".$_FILES['foto']['name'])){
+                echo"Gambar Berhasil Diupload";
+            }else{
+                echo"Gambar gagal diupload";
+            }
+            $kode=$_POST["kode"];
+            $user=$_POST["user"];
 
 
             echo"$nama <br>
@@ -102,6 +113,10 @@
             $tptLahir <br> 
             $jnsKelamin <br>  
             $hobby <br>
+            $hobby2 <br>
+            $hobby3 <br>
+            $hobby4 <br>
+            $hobby5 <br>
             $alamat <br>
             $kota <br> 
             $pendidikan<br>
