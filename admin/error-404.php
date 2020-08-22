@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
@@ -35,7 +35,7 @@
             </div>
             <div class="row mt-5">
               <div class="col-12 text-center mt-xl-2">
-                <a class="text-white font-weight-medium" href="../../index.html">Back to home</a>
+                <a class="text-white font-weight-medium" href="index.php">Back to home</a>
               </div>
             </div>
             <div class="row mt-5">

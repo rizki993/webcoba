@@ -1,3 +1,7 @@
+<?php
+include 'proses/koneksi.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,17 +11,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../vendors/iconfonts/puse-icons-feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/iconfonts/puse-icons-feather/feather.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
+  <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 
 <body>
@@ -27,11 +32,12 @@
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
-              <form action="#">
+              <form action="proses/proses_login.php" method="POST" >
+
                 <div class="form-group">
                   <label class="label">Username</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" placeholder="Username" name="username" required>
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -39,10 +45,11 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="form-group">
                   <label class="label">Password</label>
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="*********">
+                    <input type="password" class="form-control" placeholder="*********" name="password" required>
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -50,25 +57,30 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="form-group">
-                  <button class="btn btn-primary submit-btn btn-block">Login</button>
+                  <button class="btn btn-primary submit-btn btn-block" name="login" type="submit">Login</button>
                 </div>
+
                 <div class="form-group d-flex justify-content-between">
                   <div class="form-check form-check-flat mt-0">
                     <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" checked> Keep me signed in
+                      <input type="checkbox" class="form-check-input" checked required> Keep me signed in
                     </label>
                   </div>
                   <a href="#" class="text-small forgot-password text-black">Forgot Password</a>
                 </div>
+
                 <div class="form-group">
                   <button class="btn btn-block g-login">
                     <img class="mr-3" src="../../images/file-icons/icon-google.svg" alt="">Log in with Google</button>
                 </div>
+
                 <div class="text-block text-center my-3">
                   <span class="text-small font-weight-semibold">Not a member ?</span>
-                  <a href="register.html" class="text-black text-small">Create new account</a>
+                  <a href="register.php" class="text-black text-small">Create new account</a>
                 </div>
+
               </form>
             </div>
             <ul class="auth-footer">
@@ -92,16 +104,17 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <script src="../../vendors/js/vendor.bundle.addons.js"></script>
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/misc.js"></script>
-  <script src="../../js/settings.js"></script>
-  <script src="../../js/todolist.js"></script>
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/misc.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
   <!-- endinject -->
+
 </body>
 
 </html>
